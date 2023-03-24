@@ -7,11 +7,10 @@ const sprintSchema = new mongoose.Schema({
     },
     startDate: {
       type: Date,
-      required: true
+      default:Date.now
     },
     endDate: {
-      type: Date,
-      required: true
+      type: Date
     },
     tasks: [
       {
