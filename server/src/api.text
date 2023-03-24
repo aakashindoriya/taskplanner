@@ -1,0 +1,10 @@
+// A person should be able to create a Sprint, add a task to Sprint, change assignee or
+status of task, show all tasks of a particular Sprint and show all tasks assigned to a user,
+etc.
+
+create sprint=/sprint/create(post){ name: string, startDate: Date, endDate: Date }
+get all sprints=/sprint/getall(get)
+add a task to a sprint=task/addtask/:sprintid(post){ name: string, description: string, type: string, assignee: string, status: string }
+update a task's assignee or status=task/:taskid(patch){ assignee: string, status: string }
+get all tasks assigned to a user=task/:userid(get)
+find user to assign a task=user(get){regexp(username)}
