@@ -43,7 +43,6 @@ const LOGIN=async (req,res)=>{
 const GETUSERS=async(req,res)=>{
     try {
         const { username } = req.params;
-        console.log(username)
         // Find all users that match the given username
         const users = await User.find({ username: { $regex: username, $options: 'i' } },{username:1,email:1});
     
