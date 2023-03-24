@@ -1,0 +1,6 @@
+export const GET_ALL_SPRINT="getallsprint"
+export const ADD_NEW_SPRINT="addnewsprint"
+export const UPDATE_TASK_STATUS="updatetaskstatus"
+export const UPDATE_TASK_ASSINEE="updatetaskassignee"
+export const CREATE_NEW_TASK="cratenewtask"
+export const LOADING="loading"
