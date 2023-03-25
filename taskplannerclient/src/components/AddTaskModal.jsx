@@ -38,11 +38,9 @@ const TaskModal = ({ id}) => {
     <Tooltip label="Add new Task" aria-label=''>
   
         <Button
+        colorScheme={"blue"}
         as={IconButton}
         variant="outline"
-        position={"absolute"}
-        bottom={["10%","70%"]}
-        right={["0%","10%"]}
         onClick={() => setIsOpen(true)}
         icon={<AddIcon /> }
         />

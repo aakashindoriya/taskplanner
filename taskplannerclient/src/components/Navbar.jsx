@@ -4,13 +4,13 @@ import {
   Flex,
   Text,
   Spacer,
-  Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   IconButton,
   HStack,
+ 
 } from "@chakra-ui/react";
 import { CgProfile } from 'react-icons/cg';
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const navigate=useNavigate()
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <Box bg="white" px="4" py="2" pos="sticky" top="0px" borderBottom={"0.5px solid blue"} >
+    <Box zIndex={10} bg="white" px="4" py="2" pos="sticky" top="0px" borderBottom={"0.5px solid blue"} >
       <Flex alignItems="center">
         <Text 
         onClick={()=>navigate("/")}
@@ -45,7 +45,7 @@ const navigate=useNavigate()
                 <MenuItem onClick={()=>navigate("/login")}>Log-In</MenuItem>
                 </MenuList>
             </Menu>
-          <MyTasks />
+            <MyTasks />
           <CreateSprint />
         </HStack>
       </Flex>

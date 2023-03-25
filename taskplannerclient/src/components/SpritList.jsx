@@ -4,8 +4,8 @@ import {MdOutlineDateRange} from "react-icons/md"
 export default function SprintList ({ sprints, onSprintClick ,activeid}) {
     
     return (
-    <Box >
-    <Heading textAlign="center" textShadow="dark-lg" >Sprint</Heading>
+    <Box  h="80vh" >
+    <Heading mb="3" textAlign="center" fontWeight={"hairline"}  fontFamily={"fantasy"} >Sprint</Heading>
     <List textAlign={"center"} rowGap="20">
       {sprints?.map((sprint, index) => (
         <ListItem
@@ -15,7 +15,10 @@ export default function SprintList ({ sprints, onSprintClick ,activeid}) {
             p="5%"
           key={sprint._id}
           cursor="pointer"
-          onClick={() => onSprintClick(sprint)}
+          onClick={() => {
+            onSprintClick(sprint)
+            localStorage.setItem("activeid",index)
+          }}
         >
           {sprint.name}
           <Flex fontSize="x-small" justify={"space-between"}>

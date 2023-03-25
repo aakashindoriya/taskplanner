@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Button, IconButton, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@chakra-ui/react";
+import { Box, Button, IconButton, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Tooltip } from "@chakra-ui/react";
 import { MdTask } from "react-icons/md";
 import { useSelector } from "react-redux";
 import axios from "axios"
@@ -31,13 +31,14 @@ console.log(tasks)
 
   return (
     <>
+        <Tooltip label="Show My Tasks" aria-label='Show My Tasks'>
         <Button 
          as={IconButton}
          variant="outline"
          icon={<MdTask  />}
          onClick={handleIconClick}
           colorScheme="blue"
-        ></Button>
+        ></Button></Tooltip>
       
       <Modal isOpen={isModalOpen}>
       <ModalContent>

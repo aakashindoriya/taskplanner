@@ -8,9 +8,11 @@ export function TaskTable  ({ tasks,sprintid })  {
   const features = tasks?.filter(task => task.type === "feature");
   const stories = tasks?.filter(task => task.type === "story");
     return(
-    <Box w="100%" >
+    <Box  >
+      <Flex gap="10" justifyContent={"center"}>
+      <Heading mb="10" textAlign="center" fontWeight={"hairline"}  fontFamily={"fantasy"} >Tasks</Heading>
       <TaskModal id={sprintid} />
-      <Heading mb="10" textAlign="center" textShadow="dark-lg">Tasks</Heading>
+      </Flex>
       <Flex direction={["column","row","row"]} justifyContent={"space-between"} gap="2">
         <Box mb={4} w={["100%","33%"]} borderRight={["tansparent","1px solid rgb(96, 165, 250)"]} p="2">
           <Text fontWeight="bold">Bugs:</Text>
@@ -23,7 +25,7 @@ export function TaskTable  ({ tasks,sprintid })  {
         <Box mb={4} w={["100%","33%"]} borderRight={["tansparent","1px solid rgb(96, 165, 250)"]} p="2">
           <Text fontWeight="bold">Features:</Text>
           {features?.map((feature) => (
-            <Box key={feature.id}>
+            <Box key={feature.id} p="2">
               <TaskCard {...feature} />
             </Box>
           ))}
@@ -31,7 +33,7 @@ export function TaskTable  ({ tasks,sprintid })  {
         <Box mb={4} w={["100%","33%"]}  p="2">
           <Text fontWeight="bold">Stories:</Text>
           {stories?.map((story) => (
-            <Box key={story.id}>
+            <Box key={story.id} p="2">
               <TaskCard {...story} />
             </Box>
           ))}
