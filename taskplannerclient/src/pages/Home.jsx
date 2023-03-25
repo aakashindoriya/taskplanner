@@ -1,7 +1,9 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SprintList from "../components/SpritList";
 import { TaskTable } from "../components/TaskTable";
+import {useDispatch} from "react-redux"
+import { getSprints } from "../redux/actions/sprint.actions";
 const sprints = [
     {
       id: 1,
@@ -28,7 +30,11 @@ const sprints = [
       ],
     },
   ];
-const Home = () => {
+  const Home = () => {
+    let dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(getSprints())
+  })
     const [selectedSprint, setSelectedSprint] = useState(sprints[0]);
   
     return (

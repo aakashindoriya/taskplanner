@@ -6,9 +6,11 @@ import {
     combineReducers
 } from 'redux';
 import authReducer from "./reducers/auth.reducer"
+import { sprintReducer } from './reducers/sprint.reducer';
 
 let root=combineReducers({
     auth:authReducer,
+    sprint:sprintReducer
 })
 
 
