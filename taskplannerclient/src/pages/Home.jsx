@@ -2,46 +2,34 @@ import { Box, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import SprintList from "../components/SpritList";
 import { TaskTable } from "../components/TaskTable";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { getSprints } from "../redux/actions/sprint.actions";
-const sprints = [
-    {
-      id: 1,
-      name: "Sprint 1",
-      tasks: [
-        { id: 1, type: "bug", description: "Fix login bug" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-        { id: 2, type: "feature", description: "Add payment feature" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Sprint 2",
-      tasks: [
-        { id: 3, type: "story", description: "Create homepage layout" },
-        { id: 4, type: "bug", description: "Fix search bug" },
-      ],
-    },
-  ];
+import {useNavigate} from "react-router-dom"
   const Home = () => {
+    const [selectedSprint, setSelectedSprint] = useState({});
+    const navigate=useNavigate()
+    const auth=useSelector(s=>s.auth)
+    const sprint=useSelector(s=>s.sprint)
     let dispatch=useDispatch()
+
   useEffect(()=>{
-    dispatch(getSprints())
-  })
-    const [selectedSprint, setSelectedSprint] = useState(sprints[0]);
+    if(auth.isAuth){
+      dispatch(getSprints())
+    }else{
+      navigate("/login")
+    }
+  },[auth.isAuth])
+  useEffect(()=>{
+    if(sprint.sprint.length>=1){
+     setSelectedSprint({...sprint.sprint[0]})
+    }
+  },[sprint.sprint])
   
     return (
       <Flex  p="10" h="90vh" overflowY={"scroll"}>
         <Box width="20%" borderRight={"2px solid rgb(96, 165, 250)"} boxShadow={"base"}>
           <SprintList
-            sprints={sprints}
+            sprints={sprint.sprint}
             onSprintClick={(sprint) => setSelectedSprint(sprint)}
           />
         </Box>
