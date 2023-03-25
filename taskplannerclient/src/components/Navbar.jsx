@@ -15,6 +15,7 @@ import {
 import { CgProfile } from 'react-icons/cg';
 import { useNavigate } from "react-router-dom";
 import CreateSprint from "./CreateSprint";
+import MyTasks from "./MyTasks";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +45,7 @@ const navigate=useNavigate()
                 <MenuItem onClick={()=>navigate("/login")}>Log-In</MenuItem>
                 </MenuList>
             </Menu>
+          <MyTasks />
           <CreateSprint />
         </HStack>
       </Flex>
