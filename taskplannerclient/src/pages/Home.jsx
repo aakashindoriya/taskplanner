@@ -26,15 +26,16 @@ import {useNavigate} from "react-router-dom"
   },[sprint.sprint])
   
     return (
-      <Flex  p="10" h="90vh" overflowY={"scroll"}>
-        <Box width="20%" borderRight={"2px solid rgb(96, 165, 250)"} boxShadow={"base"}>
+      <Flex direction={["column","row","row"]} p="10" h="90vh" overflowY={"scroll"}>
+        <Box width={["100","20%"]} pos={["static","sticky"]} top="0%" borderRight={"2px solid rgb(96, 165, 250)"} boxShadow={"base"}>
           <SprintList
+            activeid={selectedSprint._id}
             sprints={sprint.sprint}
             onSprintClick={(sprint) => setSelectedSprint(sprint)}
           />
         </Box>
-        <Box width="80%" pl={4}>
-          <TaskTable tasks={selectedSprint.tasks} />
+        <Box width={["100%","80%"]} pl={4}>
+          <TaskTable tasks={selectedSprint.tasks} sprintid={selectedSprint._id} />
         </Box>
       </Flex>
     );

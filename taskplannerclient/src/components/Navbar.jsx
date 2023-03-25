@@ -22,7 +22,7 @@ const navigate=useNavigate()
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <Box bg="white" px="4" py="2" pos="sticky" top="0px" >
+    <Box bg="white" px="4" py="2" pos="sticky" top="0px" borderBottom={"0.5px solid blue"} >
       <Flex alignItems="center">
         <Text 
         onClick={()=>navigate("/")}
